@@ -1,0 +1,2 @@
+{"type": "user", "timestamp": "2026-04-25T17:46:35.058301Z", "message": {"role": "user", "content": [{"type": "text", "text": "Explain X."}]}}
+{"type": "assistant", "timestamp": "2026-04-25T17:47:05.058301Z", "message": {"role": "assistant", "stop_reason": "end_turn", "content": [{"type": "text", "text": "Here is the explanation..."}]}}

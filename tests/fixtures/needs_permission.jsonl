@@ -1,0 +1,2 @@
+{"type": "user", "timestamp": "2026-04-25T17:44:15.058301Z", "message": {"role": "user", "content": [{"type": "text", "text": "Do dangerous thing."}]}}
+{"type": "assistant", "timestamp": "2026-04-25T17:44:35.058301Z", "message": {"role": "assistant", "content": [{"type": "tool_use", "id": "toolu_perm_1", "name": "Bash", "input": {"cmd": "rm -rf /"}}]}}

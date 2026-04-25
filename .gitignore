@@ -1,0 +1,47 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock.bak
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Editors / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+.cargo-ok
+.history/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.toml
+
+# Logs / pids
+*.log
+*.pid
+nohup.out
+
+# Test artifacts (not runtime)
+.playwright/
+.coverage
+coverage/
+
+# Temp
+*.tmp
+*.bak

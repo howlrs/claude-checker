@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claude Checker</title>
+    <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/antd@5.29.3/dist/reset.css"
+      crossorigin="anonymous"
+    />
+
+    <!--
+      Strategy:
+        1. Inline import map (browsers don't reliably support external src=).
+        2. /static/react-bridge.js loads React 19 ESM and pins it on
+           window.React / window.ReactDOM so the Ant Design 5 UMD bundle
+           shares the same React instance.
+        3. dayjs UMD (antd peer dep) and antd UMD attach to window.dayjs / window.antd.
+        4. /static/app.js consumes both via import + window.antd.
+
+      Pinned versions:
+        React 19.2.5 (latest stable)
+        Ant Design 5.29.3 (latest npm `latest-5` dist-tag — antd 6 ESM
+                            is not stable on CDN-only setups yet)
+        dayjs 1.11.20 / htm 3.1.1
+    -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19.2.5",
+          "react/jsx-runtime": "https://esm.sh/react@19.2.5/jsx-runtime",
+          "react-dom": "https://esm.sh/react-dom@19.2.5",
+          "react-dom/client": "https://esm.sh/react-dom@19.2.5/client",
+          "htm": "https://esm.sh/htm@3.1.1"
+        }
+      }
+    </script>
+
+    <!-- 1) React 19 ESM → global bridge for the antd 5 UMD. -->
+    <script type="module" src="/static/react-bridge.js"></script>
+
+    <!-- 2) dayjs UMD (antd's runtime peer dep). -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.20/dayjs.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 3) Ant Design 5 UMD; reads window.React / ReactDOM / dayjs. -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/antd@5.29.3/dist/antd.min.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+{"type": "user", "timestamp": "2026-04-25T17:47:32.058301Z", "message": {"role": "user", "content": [{"type": "text", "text": "Run a long search."}]}}
+{"type": "assistant", "timestamp": "2026-04-25T17:47:34.058301Z", "message": {"role": "assistant", "content": [{"type": "tool_use", "id": "toolu_running_1", "name": "Bash", "input": {"cmd": "find / -name x"}}]}}
